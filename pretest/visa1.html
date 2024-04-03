@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <title>pretest!</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <style>
+    .container {
+      margin-top: 1rem;
+      width: 390px;
+      /* background-color: #13274F; */
+      align-items: center;
+      justify-content: center;
+
+    }
+
+    .card {
+      width: 350px;
+      background: linear-gradient(to left, #122449, #1e3666);
+      /* สร้างสีไล่จากสีแดงไปยังสีเขียว */
+
+      background-color: #13274F;
+      margin-top: 10px;
+      color: white;
+
+
+    }
+
+    .incard {
+      margin-left: 20px;
+    }
+
+    .nemu {
+      color: #13274F;
+      display: flex;
+      align-items: center;
+    }
+
+    .incard,
+    .a {
+      display: flex;
+      align-items: center;
+    }
+
+    .incard a {
+      font-size: 20px;
+    }
+
+    .belowcard {
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+    }
+
+    .a {
+      font-size: 15px;
+    }
+
+    .card a {
+      font-size: 12px;
+
+      margin-left: 215px;
+    }
+
+    .card h4 {
+      margin-top: 10px;
+    }
+
+    .belowcard {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+
+    .card2 {
+      box-shadow: 0px 0px 5px rgba(193, 188, 188, 0.5);
+      background-color: white;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+      padding-left: 5rem;
+      border: 1px solid gainsboro;
+      border-radius: 10px;
+      width: 350px;
+      display: flex;
+      align-items: center;
+    }
+
+    .flexcon {
+      margin-top: 20px;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+
+    .list img {
+      margin-left: 10px;
+    }
+
+    .list .info {
+      flex-grow: 1;
+      margin-top: 10px;
+      margin-left: 20px;
+
+    }
+
+    .list .amount {
+      margin-right: 10px;
+    }
+
+    .list img.arrow {
+      margin-left: auto;
+    }
+
+    .list p {
+      margin-top: -10px;
+      color: gray;
+    }
+
+    .list {
+      box-shadow: 0px 0px 5px rgba(193, 188, 188, 0.5);
+      padding: 10px;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      border: 1px solid lightgray;
+      border-radius: 10px;
+      width: 350px;
+    }
+    
+    .income,
+    .expense {
+      margin-top: 20px;
+      flex: 1;
+      /* margin-left: -90px; */
+      text-align: center;
+    }
+
+    .income {
+      margin-left: -90px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="nemu">
+      <h2 style="color: #10347c;">All my accounts</h2>
+      <img src="./image/nemu-hamburger.png" alt="" width="20px" style="margin-left: 100px;">
+    </div>
+    <a style="color: rgb(122, 119, 119); ">Jun 10,2018</a>
+
+    <div class="card">
+      <img src="./image/symbols.png" alt="visa" width="50px" style="margin-left: 30px;">
+      <a style="color: green; margin-top: -10px; margin-left: ;">Available Balance</a>
+      <div class="incard">
+        <img src="./image/gold-leaf.png" alt="chip" width="40px" style="margin-left: 16px;">
+        <img src="./image/dollar-symbol.png" alt="dollar" width="25px" style="margin-left: 110px;">
+        <a style="margin-left: 5px; font-size: 25px;">7,392.00</a>
+      </div>
+      <h6
+        style="margin-left: 20px; margin-right: 20px; letter-spacing: 6px; text-align: center; margin-top: 20px; font-size: 16px;">
+        42012 3049 2800 9815</h6>
+
+      <div class="belowcard">
+        <a style="margin-left: 40px;">EXPIRE</a>
+        <img style="margin-left: 5px;" src="./image/downward-arrow.png" alt="" width="10px">
+        <a style="margin-left:8px; font-size: 18px;">02/22</a>
+        <a style="margin-left: 55px;">CVC CODE</a>
+        <img style="margin-left: 5px;" src="./image/downward-arrow.png" alt="" width="10px">
+        <a style="margin-left:8px; font-size: 18px;">230</a>
+      </div>
+    </div>
+    <img src="./image/more.png" alt="chip" width="40px" style="margin-left: 150px;">
+
+    <div class="card2">
+      <div class="income">
+        <a style="font-size: 10px; border: 1px solid rgb(199, 193, 193); padding: 5px 15px; border-radius: 25px;">Income</a><br>
+        <div style="margin-top: 20px;margin-bottom: 20px;">
+          <img style="margin-bottom: 4px;" src="./image/right-arrow (1).png" alt="" width="10px">
+          <a style="color: green;">$9,302.00</a>
+
+        </div>
+        <!-- <a style="border-right: 1px solid rgb(203, 204, 206);"></a> -->
+      </div>
+
+      <div class="expense">
+        <a
+          style="font-size: 10px; border: 1px solid rgb(199, 193, 193); padding: 5px 15px; border-radius: 25px;">Expense</a><br>
+        <div style="margin-top: 10px; margin-bottom: 20px;">
+          <img style="margin-bottom: 4px;" src="./image/right-arrow (2).png" alt="" width="10px">
+          <a style="color: red;">$2790.00</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="flexcon">
+      <a style="color: #10347c;">Detail of movements</a>
+      <img src="./image/icon-calendar.png" alt="chip" width="25px" style="margin-left: 140px;">
+    </div>
+
+    <div class="list">
+      <img src="./image/restuarant.png" alt="Restaurant Icon" width="40px">
+      <div class="info">
+        <h6>Restaurant Manhattan</h6>
+        <p>June 10,2018</p>
+      </div>
+      <span style="color: red;" class="amount">$170</span>
+      <img src="./image/right-arrow (2).png" alt="Arrow Down" width="10px">
+    </div>
+
+    <div class="list">
+      <img src="./image/hand-hold-money.png" alt="Salary Icon" width="40px">
+      <div class="info">
+        <h6>Salary Deposit</h6>
+        <p>June 1,2018</p>
+      </div>
+      <span style="color: green;" class="amount">$1,200</span>
+      <img src="./image/right-arrow (1).png" alt="Arrow Up" width="10px">
+    </div>
+
+    <div class="list">
+      <img src="./image/shop-bag.png" alt="Shop Icon" width="40px">
+      <div class="info">
+        <h6>Central Market</h6>
+        <p>May 28,2018</p>
+      </div>
+      <span style="color: red;" class="amount">$50</span>
+      <img src="./image/right-arrow (2).png" alt="Arrow Up" width="10px">
+    </div>
+
+    <div class="list">
+      <img src="./image/icon-coins.png" alt="coin Icon" width="40px">
+      <div class="info">
+        <h6>Salary Deposit</h6>
+        <p>May 1,2018</p>
+      </div>
+      <span style="color: green;" class="amount">$1,200</span>
+      <img src="./image/right-arrow (1).png" alt="Arrow Up" width="10px">
+    </div>
+
+  </div>
+
+  </div>
+  </div>
+
+</body>
+
+</html>

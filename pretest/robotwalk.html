@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Walk</title>
+    <!-- <link rel="stylesheet" href="rbstyles.css"> -->
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+
+        }
+
+        .wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        #instruction {
+            border: 1px solid #ccc;
+            border-radius: 10px 10px 10px 10px;
+            width: 200px;
+            height: 20px;
+            padding: 10px;
+            margin-top: 5px;
+        }
+
+        #btn {
+            margin-top: 10px;
+            width: 100px;
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px 10px 10px 10px;
+            background-color: rgb(162, 184, 236);
+            margin-top: 30px;
+            margin-left: 120px;
+
+        }
+
+        .grid-container {
+            display: flex;
+            flex-wrap: wrap;
+            /* grid-template-columns: auto auto auto auto; */
+            /* background-color: #b9babb; */
+            padding: 10px;
+            margin-left: 5rem;
+            /* border: 1px solid rgb(0, 0, 0); */
+            width: auto;
+            height: auto;
+        }
+
+        .line {
+            border-right: 1px solid rgb(203, 206, 209);
+            padding-right: 3rem;
+        }
+
+        table {
+            border-collapse: collapse;
+
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid rgb(175, 172, 172);
+            padding: 15px;
+        }
+
+        .center-dot {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <span class="line">
+            <div class="container">
+                <h3>Robot Walk</h3>
+                <label for="instruction">คำสั่ง Robot Walk</label><br>
+                <input type="text" id="instruction"><br>
+                <button id="btn" onclick="startWalk()">คำนวณ</button>
+            </div>
+        </span>
+        <div class="grid-container">
+
+        </div>
+    </div>
+    <script>
+        window.onload = function () {
+            createTable();
+            placeDotInCenter();
+        };
+
+        function createTable() {
+            var rows = 9;
+            var columns = 9;
+
+            var table = "<table>";
+            for (var i = 0; i < rows; i++) {
+                table += "<tr>";
+                for (var j = 0; j < columns; j++) {
+                    table += "<td></td>";
+                }
+                table += "</tr>";
+            }
+            table += "</table>";
+
+            document.querySelector(".grid-container").innerHTML = table;
+        }
+// currentPos.x.style.transform = 'rotate(' + degree + 'deg)';
+        function startWalk() {
+            const instructions = document.getElementById("instruction").value;
+            const grid = document.querySelector(".grid-container");
+            let currentPos = { x: 4, y: 4 };
+            // currentPos.style.transform = 'rotate(90deg)';
+            instructions.split("").forEach(instruction => {
+                if (instruction === "W") {
+                    currentPos += 1;
+                } else if (instruction === "L") {
+                    // currentPos.style.transform = 'rotate(45deg)';
+                    currentPos.x -= 1;
+                } else if (instruction === "R") {
+                    currentPos.x += 1;
+                }
+                displayPosition(currentPos);
+                // displayCurrentPosition(currentPos);
+            });
+
+            function displayPosition(pos) {
+                if (pos.x < 0 || pos.x > 8 || pos.y < 0 || pos.y > 8) {
+                    console.log("Position is out of bounds!");
+                    return;
+                }
+                const cells = document.querySelectorAll(".grid-container td");
+                const cellIndex = pos.y * 9 + pos.x;
+                if (cells[cellIndex]) {
+                    cells[cellIndex].style.backgroundColor = "gray";
+                }
+                else {
+
+                    cells[cells.length - 1].style.backgroundColor = "red";
+                }
+            }
+
+            function removeAllGreenColor() {
+                const cells = document.querySelectorAll(".grid-container td");
+                cells.forEach(cell => {
+                    cell.style.backgroundColor = "";
+                });
+            }
+
+            // function displayCurrentPosition(pos) {
+            //     const currentPositionElement = document.getElementById("currentPosition");
+            //     currentPositionElement.textContent = `Current Position: (${pos.x}, ${pos.y})`;
+            // }
+        }
+
+
+        function placeDotInCenter() {
+            var table = document.querySelector("table");
+            var rowCount = table.rows.length;
+            var colCount = table.rows[0].cells.length;
+
+            var centerRow = Math.floor(rowCount / 2);
+            var centerCol = Math.floor(colCount / 2);
+
+            var centerCell = table.rows[centerRow].cells[centerCol];
+            centerCell.classList.add("center-dot");
+        }
+    </script>
+</body>
+
+</html>

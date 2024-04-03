@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move Position</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .current {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <script>
+        // สร้างตาราง 5x5
+const rows = 5;
+const cols = 5;
+let currentPosition = { x: 0, y: 0 };
+
+// ฟังก์ชันสำหรับสร้างตารางและแสดงตำแหน่งปัจจุบัน
+function createTable() {
+    const table = document.createElement('table');
+    for (let i = 0; i < rows; i++) {
+        const row = document.createElement('tr');
+        for (let j = 0; j < cols; j++) {
+            const cell = document.createElement('td');
+            cell.textContent = `${i},${j}`;
+            row.appendChild(cell);
+        }
+        table.appendChild(row);
+    }
+    document.body.appendChild(table);
+}
+
+// ฟังก์ชันสำหรับเคลื่อนที่ตำแหน่ง
+function movePosition(direction) {
+    const newPosition = { ...currentPosition };
+    switch (direction) {
+        case 'up':
+            if (newPosition.x > 0) newPosition.x--;
+            break;
+        case 'down':
+            if (newPosition.x < rows - 1) newPosition.x++;
+            break;
+        case 'left':
+            if (newPosition.y > 0) newPosition.y--;
+            break;
+        case 'right':
+            if (newPosition.y < cols - 1) newPosition.y++;
+            break;
+        default:
+            return;
+    }
+    currentPosition = newPosition;
+    updatePosition();
+}
+
+// ฟังก์ชันสำหรับอัปเดตตำแหน่งปัจจุบันในตาราง
+function updatePosition() {
+    const cells = document.querySelectorAll('td');
+    cells.forEach(cell => {
+        cell.classList.remove('current');
+        const [x, y] = cell.textContent.split(',');
+        if (parseInt(x) === currentPosition.x && parseInt(y) === currentPosition.y) {
+            cell.classList.add('current');
+        }
+    });
+}
+
+// สร้างตารางและเริ่มต้นตำแหน่ง
+createTable();
+updatePosition();
+
+// รับค่าจากผู้ใช้และเคลื่อนที่ตำแหน่ง
+document.addEventListener('keydown', event => {
+    const key = event.key.toLowerCase();
+    if (key === 'w') {
+        movePosition('up');
+    } else if (key === 's') {
+        movePosition('down');
+    } else if (key === 'a') {
+        movePosition('left');
+    } else if (key === 'd') {
+        movePosition('right');
+    }
+});
+
+    </script>
+</body>
+
+</html>

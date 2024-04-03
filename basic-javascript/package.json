@@ -1,0 +1,13 @@
+{
+  "name": "basic-javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./index.js",
+    "workshop1": "node ./workshop1.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
